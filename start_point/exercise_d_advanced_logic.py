@@ -35,7 +35,23 @@ for number in numbers:
 #    BUT ignore any section of numbers starting with a 6 and extending to the next 7.
 #    
 #    So [11, 6, 4, 99, 7, 11] would have sum of 22
+counter = 0
+section_6to7 = False
+total_excl_6to7 = 0
 
+for number in numbers:
+
+    if number == 6:
+        section_6to7 = True
+    elif numbers[counter - 1] == 7:
+        section_6to7 = False
+
+    if section_6to7 == False:
+        total_excl_6to7 += number
+
+    counter += 1
+
+print(total_excl_6to7) #2
 
 
 # 5. HARD! Print the sum of the numbers. 
@@ -44,10 +60,14 @@ for number in numbers:
 #    HINT - You will need to track the index throughout the loop.
 #
 #    So [5, 13, 2] would have sum of 5. 
+counter = 0
+total_excl13 = 0
 
+for number in numbers:
+    
+    if number != 13 and numbers[counter - 1] != 13:
+        total_excl13 += number
+    
+    counter += 1
 
-
-
-
-
-
+print(total_excl13) #32
